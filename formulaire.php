@@ -23,7 +23,7 @@ if($result != null && $result != FALSE && $_SERVER['REQUEST_METHOD']=='POST')
     /*utilisation de la fonction ecrireJSON*/
     ecrireJSON($tache, false);
   }
-
+  /*vérifie si on a cliqué sur le bouton "Enregistrer".*/
   if(isset($_POST["submit"]) && $_POST["submit"] == "Enregistrer")
   {
     /*$tache_ligne est un tableau*/
@@ -33,15 +33,15 @@ if($result != null && $result != FALSE && $_SERVER['REQUEST_METHOD']=='POST')
     //   enregistreJSON($tache_ligne[$i]);
     enregistreJSON($tache_ligne);
   }
+  /*Requete POST provenant de la fonction "post_dragdrop" du fichier javascript (script.js)*/
   if(isset($_POST["dragdrop"]) && $_POST["dragdrop"] == "true")
   {
+    /*récupère l'index source*/
     $src_index = $_POST["src_index"];
+    /* récupère l'index destination*/
     $dest_index = $_POST["dest_index"];
-    dragDropJSON($src_index);
-    // print_r($_POST);
-
-    // Die();
-    // echo "REUSSI";
+    /*utilise la fonction dragdropJSON*/
+    dragDropJSON($src_index, $dest_index);
   }
 }
 
@@ -60,18 +60,20 @@ function ecrireJSON($tache, $terminer)
   /*utilise la fonction "sauvegardeJSON" en lui envoyant un tablreau d'objets JSON ($tabjson)*/
   sauvegardeJSON($tabjson);
 }
-
+/*fonction qui reçoit l'index source et l'index destination et qui les échange*/
 function dragDropJSON($src_index, $dest_index)
 {
   /*appel de la fonction "tableauJSON", $tabjson reçoit un tableau d'objet JSON*/
   $tabjson = tableauJSON();
+  /*vérifie que les index sont des entiers*/
   $src_index = (int)$src_index;
   $dest_index = (int)$dest_index;
-
+  /*échange les valeur dans le tableau*/
   $obj = $tabjson[$src_index];
   $tabjson[$src_index] = $tabjson[$dest_index];
   $tabjson[$dest_index] = $obj;
 
+  /*utilise la fonction "sauvegardeJSON" en lui envoyant un tablreau d'objets JSON ($tabjson)*/
   sauvegardeJSON($tabjson);
 
 }

@@ -17,7 +17,7 @@
         <?php
           afficheJSON(false);
          ?>
-         <input type="submit" name="submit" value="Enregistrer">
+         <input class="btn_submit" type="submit" name="submit" value="Enregistrer">
         </form>
       </fieldset>
       <fieldset class="archive">
@@ -37,6 +37,15 @@
         </main>
       </fieldset>
     </section>
+
+    <label for="">
+       <?php
+       print_r($_POST["src_index"]);
+       echo "<br/>";
+        print_r($_POST["dest_index"]);
+       ?>
+     </label>
+
   </body>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
   <script type="text/javascript" src="./script.js"></script>
