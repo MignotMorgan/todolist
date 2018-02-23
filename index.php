@@ -10,7 +10,7 @@
       include("./contenu.php");
       include("./formulaire.php");
     ?>
-    <section>
+    <section class="section--tache">
       <fieldset class="afaire">
         <legend><strong>A FAIRE</strong> </legend>
         <form class="" action="index.php" method="post">
@@ -37,15 +37,6 @@
         </main>
       </fieldset>
     </section>
-
-    <label for="">
-       <?php
-       print_r($_POST["src_index"]);
-       echo "<br/>";
-        print_r($_POST["dest_index"]);
-       ?>
-     </label>
-
   </body>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
   <script type="text/javascript" src="./script.js"></script>

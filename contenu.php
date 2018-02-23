@@ -69,8 +69,8 @@
         $txt .= '>';
         /*fin : balise <input>*/
         /*balise fermante <label>*/
-        $txt .= $obj->Nom. ' : '.$i. '</label>';
-        $txt .= "<br/>";
+        $txt .= $obj->Nom. '</label>';
+        // $txt .= "<br/>";
 
         echo $txt;
       }

@@ -5,9 +5,34 @@
 /*Sanitisation*/
 $options = array(
   'tache'         => FILTER_SANITIZE_STRING,
-  'tache_ligne'   => FILTER_SANITIZE_STRING
+  'ajouter'       => FILTER_SANITIZE_STRING,
+  'submit'        => FILTER_SANITIZE_STRING,
+  'tache_ligne'   => FILTER_SANITIZE_STRING,
+  'dragdrop'      => FILTER_SANITIZE_STRING,
+  'src_index'     => FILTER_SANITIZE_STRING,
+  'dest_index'    => FILTER_SANITIZE_STRING
 );
 $result = filter_input_array(INPUT_POST, $options);
+
+$_Post["tache"] = filter_input(INPUT_POST, "tache", FILTER_SANITIZE_SPECIAL_CHARS );
+$_Post["tache"] = filter_input(INPUT_POST, "tache", FILTER_SANITIZE_ENCODED );
+
+$_POST["tache"] = filter_var($_POST["tache"], FILTER_SANITIZE_STRING);
+$_POST["ajouter"] = filter_var($_POST["ajouter"], FILTER_SANITIZE_STRING);
+$_POST["submit"] = filter_var($_POST["submit"], FILTER_SANITIZE_STRING);
+$_POST["tache_ligne"] = filter_var($_POST["tache_ligne"], FILTER_SANITIZE_STRING);
+$_POST["dragdrop"] = filter_var($_POST["dragdrop"], FILTER_SANITIZE_STRING);
+$_POST["src_index"] = filter_var($_POST["src_index"], FILTER_SANITIZE_STRING);
+$_POST["dest_index"] = filter_var($_POST["dest_index"], FILTER_SANITIZE_STRING);
+
+$_Post["tache"] = htmlentities($_POST["tache"]);
+$_Post["ajouter"] = htmlentities($_POST["ajouter"]);
+$_Post["submit"] = htmlentities($_POST["submit"]);
+$_Post["tache_ligne"] = htmlentities($_POST["tache_ligne"]);
+$_Post["dragdrop"] = htmlentities($_POST["dragdrop"]);
+$_Post["src_index"] = htmlentities($_POST["src_index"]);
+$_Post["dest_index"] = htmlentities($_POST["dest_index"]);
+
 /*fin Sanitisation*/
 
 
